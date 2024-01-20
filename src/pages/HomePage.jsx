@@ -1,12 +1,19 @@
 import styled from "styled-components"
 import { BiExit } from "react-icons/bi"
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
+import { useContext, useEffect } from "react"
+import AuthContext from "../context/AuthContext"
+import { useQuickOut } from "../hooks/useQuickOut"
 
 export default function HomePage() {
+  const {userName} = useContext(AuthContext) 
+   useQuickOut()
+
+
   return (
     <HomeContainer>
       <Header>
-        <h1>Olá, Fulano</h1>
+        <h1>Olá, {userName}</h1>
         <BiExit />
       </Header>
 
