@@ -4,12 +4,15 @@ import MyWalletLogo from "../components/MyWalletLogo"
 import { useContext, useState } from "react"
 import axios from "axios"
 import AuthContext from "../context/AuthContext"
+import {useQuickIn} from "../hooks/useQuickIn"
 
 export default function SignInPage() {
   const {setToken, setUserName} = useContext(AuthContext)
 
   const [form, setForm] = useState({email:"", password: ""})
   const navigate = useNavigate()
+
+  useQuickIn()
 
   function handleForm(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -30,6 +33,8 @@ export default function SignInPage() {
     .catch((err)=> alert(err.response.data))
 
   }
+  
+
   return (
     <SingInContainer>
       <form onSubmit={submitForm}>

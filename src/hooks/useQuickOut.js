@@ -9,7 +9,7 @@
 
   // nesse caso, useEffect é usado para fazer uma verificação antes da execução principal.
      useEffect(()=>{
-       if(!token || userName) navigate("/")
+       if(!token || !userName) navigate("/")
      }, [])
 
    }
