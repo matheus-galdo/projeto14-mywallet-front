@@ -6,7 +6,9 @@ export default function useQuickIn() {
     const { userName, token } = useContext(AuthContext)
     const navigate = useNavigate()
 
+
     useEffect(() => {
+        console.log({token, userName});
         if (token && userName) navigate("/home")
     }, [])
 }
